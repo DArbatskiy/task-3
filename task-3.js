@@ -1,4 +1,4 @@
-//palindrome
+//isPalindrome
 function isPalindrome(string) {
     if (string.length <= 1) {
         return true;
@@ -10,6 +10,8 @@ function isPalindrome(string) {
         return false;
     }
 }
+
+export default isPalindrome;
 
 //substr
 function substr(string, start, length) {
@@ -41,6 +43,8 @@ function substr(string, start, length) {
     return word;
 }
 
+export default substr;
+
 //apply
 function apply(step, func, argument) {
     for (step; step>=1; step--) {
@@ -48,3 +52,5 @@ function apply(step, func, argument) {
     }
     return argument;
 }
+
+export default apply;
