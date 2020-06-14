@@ -55,3 +55,6 @@ function apply(step, func, argument) {
     }
     return argument;
 }
+
+export {isPalindrome, substr, apply};
+
