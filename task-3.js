@@ -1,56 +1,57 @@
 //isPalindrome
-function isPalindrome(string) {
-    if (string.length <= 1) {
+function isPalindrome(str) {
+    if (typeof str === 'number') str = String(str);
+    if (typeof str === 'undefined') return false;
+    str = str.toLowerCase().split(' ').join('');
+    if (str.length <= 1) {
         return true;
     }
-    if (string[0]==string[string.length-1]) {
-        string = string.substring(1, string.length-1);
-        return isPalindrome(string);
+    if (str[0]==str[str.length-1]) {
+        str = str.substring(1, str.length-1);
+        return isPalindrome(str);
     } else {
         return false;
     }
 }
 
-export default isPalindrome;
-
 //substr
-function substr(string, start, length) {
+function substr(str, start, length) {
+    if (typeof str === 'number') str = String(str);
+    if (typeof str === 'undefined') throw new Error('type error');
     if (!start) start = 0;
-    if (!length) length = string.length;
-    
+    if (!length) length = str.length;
     let word = '';
 
-    if (start >= string.length) {
+    if (start >= str.length) {
         return ''; 
-    } else if (start < 0 && Math.abs(start) > string.length) {
+    } else if (start < 0 && Math.abs(start) > str.length) {
             start = 0;
     } else if (start < 0) {
-        start = string.length + start;  
+        start = str.length + start;  
     }
 
     if (length <= 0) {
         return '';
-    } else if (length > string.length-1) {
-        length = string.length;
+    } else if (length > str.length-1) {
+        length = str.length;
     }
 
     for (let i = 1; i <= length; i++) {
-        if (string[start]) {
-            word += string[start];
+        if (str[start]) {
+            word += str[start];
             start++;
         }
     }
     return word;
 }
 
-export default substr;
-
 //apply
 function apply(step, func, argument) {
+    if (!step) step = 0;
+    if (!func) throw new Error('func error');
+    if (!argument) throw new Error('argument error');
     for (step; step>=1; step--) {
         argument = func(argument);
     }
     return argument;
 }
-
-export default apply;
